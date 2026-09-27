@@ -20,4 +20,4 @@ A beginner-friendly intelligent healthcare management web app for patients and c
 5. Start the API with pnpm --filter @workspace/api-server run dev.
 6. Start the web app with pnpm --filter @workspace/ai-medical run dev.
 
-See replit.md and the artifact configuration files for the workspace structure and deployment settings.
+
