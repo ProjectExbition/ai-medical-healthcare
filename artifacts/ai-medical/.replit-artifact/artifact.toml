@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AI Medical"
+description = "A beginner-friendly intelligent healthcare management web app for patients and care teams, with symptom guidance, appointments, digital records, health recommendations, and an admin overview."
+version = "1.0.0"
+id = "artifacts/ai-medical"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25758
+
+[services.development]
+run = "pnpm --filter @workspace/ai-medical run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ai-medical", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ai-medical/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25758"
+BASE_PATH = "/"
